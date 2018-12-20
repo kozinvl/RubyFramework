@@ -15,4 +15,12 @@ module CommonVars
   SUPPLIER_PASSWORD = 'demosupplier'
 
   TITLE = 'FEATURED TOURS'
+
+  #personal account details
+  USER_FIRST_NAME = 'Johny'
+  USER_LAST_NAME = 'Smith'
+  USER_PHONE = '123456'
+
+
+
 end

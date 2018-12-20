@@ -15,14 +15,13 @@ end
 
 When(/^I open login page$/) do
   steps %{
-    When I open landing page
-    Then I should be able to see landing page
+    And I open landing page
         }
   web_app.landing_page.my_account.click
   web_app.landing_page.login.first.click
 end
 
-And(/^I types correct passwords$/) do
+And(/^I type correct password$/) do
   web_app.login_page.log_in(CommonVars::USER_MAIL,
                             CommonVars::USER_PASSWORD)
 end

@@ -1,4 +1,4 @@
-Feature: Web_UI
+Feature: Landing Page
 
   Scenario: User should be able to see navigation bar
     When I open landing page
@@ -11,7 +11,3 @@ Feature: Web_UI
       | CARS    |
       | VISA    |
 
-  Scenario: User should be able to get access to account with valid password
-    When I open login page
-    And I types correct passwords
-    Then the UserAccountPage should be opened
