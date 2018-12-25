@@ -27,5 +27,32 @@ And(/^I type correct password$/) do
 end
 
 Then(/^the UserAccountPage should be opened$/) do
+  begin
   expect(page.current_url).to include(web_app.user_account_page.url_matcher)
+  rescue Exception
+    retry
+  end
+end
+
+And(/^I choose "([^"]*)" option$/) do |option|
+  case option
+    when 'visa'
+      web_app.landing_page.visa.click
+    else
+      raise "#{option} is not supported"
+  end
+end
+
+And(/^I select "([^"]*)" and "([^"]*)"$/) do |departure_country, arrival_country|
+  web_app.landing_page.country_to_visa departure_country, arrival_country
+end
+
+And(/^I search query$/) do
+  web_app.landing_page.search_visa_button.click
+end
+
+Then(/^I should be able to see notification:$/) do |table|
+  actual_visa = web_app.landing_page.requirements_visa.map(&:text).select {|x| !x.empty?}
+  expected_visa = table.raw.map(&:first)
+  expect(actual_visa).to eq expected_visa
 end
