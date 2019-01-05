@@ -1,3 +1,4 @@
+@Landing
 Feature: Landing Page
 
   Scenario: User should be able to see navigation bar
@@ -17,4 +18,4 @@ Feature: Landing Page
     And I select "Ukraine" and "United States"
     And I search query
     Then I should be able to see notification:
-      | Ukraine ➔ United States To submit your visa for approval please fill-up the below form. |
+      | To submit your visa for approval please fill-up the below form. |
