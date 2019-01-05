@@ -3,8 +3,7 @@ require 'selenium-webdriver'
 require 'capybara/cucumber'
 require 'site_prism'
 
-require_all './lib', './page'
-
+require_all './lib', './page', './helpers'
 
 def web_app
   @web_app ||= WebApp.new

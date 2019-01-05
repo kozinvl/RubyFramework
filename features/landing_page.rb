@@ -28,7 +28,7 @@ end
 
 Then(/^the UserAccountPage should be opened$/) do
   begin
-  expect(page.current_url).to include(web_app.user_account_page.url_matcher)
+    expect(page.current_url).to include(web_app.user_account_page.url_matcher)
   rescue Exception
     retry
   end
@@ -52,6 +52,7 @@ And(/^I search query$/) do
 end
 
 Then(/^I should be able to see notification:$/) do |table|
+  sleep 3
   actual_visa = web_app.landing_page.requirements_visa.map(&:text).select {|x| !x.empty?}
   expected_visa = table.raw.map(&:first)
   expect(actual_visa).to eq expected_visa
