@@ -3,6 +3,7 @@ source "https://rubygems.org"
 git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 
 gem 'capybara', '~> 2.7', '>= 2.7.1'
+gem 'cucumber', '~> 3.1.0', '>= 3.1.2'
 gem 'require_all', '~> 2.0'
 gem 'rspec', '~> 3.8'
 gem 'selenium-webdriver', '3.9'
