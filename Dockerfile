@@ -5,17 +5,10 @@ WORKDIR /project/bbt
 
 RUN apt-get update
 
-#copy folder to workdir
-#in progress
-COPY ./bin ./bin
-COPY ./features ./features
-COPY ./helpers ./helpers
-COPY ./lib ./lib
-COPY ./page ./page
+#copy folders to workdir
+COPY . .
 
 #Install gems
-COPY Gemfile ./
-COPY Gemfile.lock ./
 RUN bundle install
 
 #loop

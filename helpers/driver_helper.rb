@@ -2,7 +2,7 @@ module DriverHelper
 
   extend self
 
-  def DriverHelper.register_browser
+  def register_browser
     Capybara.register_driver :selenium_chrome do |app|
       Capybara::Selenium::Driver.new(app,
                                      browser: :remote,
@@ -21,7 +21,7 @@ module DriverHelper
                       '--ignore-certificate-errors']
                 }
     }
-    Selenium::WebDriver::Remote::Capabilities.chrome (opts)
+    Selenium::WebDriver::Remote::Capabilities.chrome(opts)
   end
 
 end
