@@ -2,19 +2,12 @@ version: '2'
 
 services:
 
-  hub:
-    image: selenium/hub
-    ports:
-      - "4444:4444"
-    logging:
-      driver: none
-
   selenium-chrome:
-    image: selenium/node-chrome
+    image: selenium/standalone-chrome
     volumes:
       - /dev/shm:/dev/shm
-    depends_on:
-      - hub
+    ports:
+      - "4444:4444"
 
   bbt:
     build: .
@@ -23,4 +16,3 @@ services:
       - SELENIUM_PORT=4444
     depends_on:
       - selenium-chrome
-      - hub
