@@ -2,6 +2,7 @@ require_relative '../page/base_page'
 
 class LandingPage < BasePage
 
+  element :title, 'div[class="title"]'
   elements :navigate_tabs, '.text-center .text-center'
   #visa tab
   element :visa, "[title = 'Ivisa']"
@@ -11,7 +12,6 @@ class LandingPage < BasePage
   elements :search_result, "div[class*='select2-drop'] ul li"
   element :search_visa_button, "div[id='ivisa'] form button"
   elements :requirements_visa, "div[id='body-section'] .container h5"
-
 
   element :my_account, 'div[class="container"] #li_myaccount'
   elements :login, 'div[class="container"] #li_myaccount ul a'
