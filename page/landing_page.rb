@@ -4,11 +4,11 @@ class LandingPage < BasePage
 
   element :title, 'div[class="title"]'
   elements :navigate_tabs, '.text-center .text-center'
-  #visa tab
+  # visa tab
   element :visa, "[title = 'Ivisa']"
   element :departure_country, "div[id='s2id_autogen4']"
   element :arrival_country, "div[id ='s2id_autogen6']"
-  element :country_field,"[class*='select2-drop'] .select2-choice"
+  element :country_field, "[class*='select2-drop'] .select2-choice"
   elements :search_result, "div[class*='select2-drop'] ul li"
   element :search_visa_button, "div[id='ivisa'] form button"
   elements :requirements_visa, "div[id='body-section'] .container h5"
@@ -20,7 +20,7 @@ class LandingPage < BasePage
     navigate_tabs.map(&:text)
   end
 
-  def country_to_visa (departure, arrival)
+  def country_to_visa(departure, arrival)
     wait_until_departure_country_visible
     departure_country.click
     country_field.send_keys departure

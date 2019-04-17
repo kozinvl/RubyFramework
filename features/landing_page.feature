@@ -11,11 +11,11 @@ Feature: Landing Page
       | TOURS   |
       | CARS    |
 
-#  @WIP
-#  Scenario: User should be able to get country visa requirements
-#    When I open landing page
-#    And I choose "visa" option
-#    And I select "Ukraine" and "United States"
-#    And I search query
-#    Then I should be able to see notification:
-#      | To submit your visa for approval please fill-up the below form. |
+  @WIP
+  Scenario: User should not be able to find appropriate car
+    When I open landing page
+    And I choose "cars" option
+    And I select "Manchester" and "Manchester"
+    And I search query
+    Then I should be able to see notification:
+      | No Results Found |

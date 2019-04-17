@@ -14,9 +14,7 @@ And(/^the navigation bar should include the following columns:$/) do |table|
 end
 
 When(/^I open login page$/) do
-  steps %{
-    And I open landing page
-        }
+  step open landing page
   web_app.landing_page.my_account.click
   web_app.landing_page.login.first.click
 end
@@ -29,17 +27,19 @@ end
 Then(/^the UserAccountPage should be opened$/) do
   begin
     expect(page.current_url).to include(web_app.user_account_page.url_matcher)
-  rescue Exception
+  rescue StandardError => e
     retry
   end
 end
 
 And(/^I choose "([^"]*)" option$/) do |option|
   case option
-    when 'visa'
-      web_app.landing_page.visa.click
-    else
-      raise "#{option} is not supported"
+  when 'visa'
+    web_app.landing_page.visa.click
+  when 'cars'
+    web_app.landing_page.cars.click
+  else
+    raise "#{option} is not supported"
   end
 end
 
@@ -53,7 +53,7 @@ end
 
 Then(/^I should be able to see notification:$/) do |table|
   sleep 3
-  actual_visa = web_app.landing_page.requirements_visa.map(&:text).select {|x| !x.empty?}
+  actual_visa = web_app.landing_page.requirements_visa.map(&:text).select { |x| x.empty? }
   expected_visa = table.raw.map(&:first)
   expect(actual_visa).to eq expected_visa
 end
