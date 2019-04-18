@@ -11,7 +11,7 @@ Feature: Landing Page
       | TOURS   |
       | CARS    |
 
-  @WIP
+  @wip
   Scenario: User should not be able to find appropriate car
     When I open landing page
     And I choose "cars" option

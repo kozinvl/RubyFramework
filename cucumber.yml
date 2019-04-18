@@ -1,3 +1,4 @@
 <% common_parameters = "--color --format pretty --expand --require features --require support" %>
 
+default: <%= common_parameters %> <%= json %> -t ~@wip
 local: <%= common_parameters %>
