@@ -1,5 +1,5 @@
 require_relative '../page/base_page'
-
+# Class contain locators and basic interaction with page
 class LandingPage < BasePage
 
   element :title, 'div[class="title"]'

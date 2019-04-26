@@ -1,4 +1,5 @@
 require_relative '../page/base_page'
+# Class contain locators and basic interaction with page
 class LoginPage < BasePage
   element :email, "div[class*='wow fadeIn animated'] input[type='email']"
   element :password, "div[class*='wow fadeIn'] input[type='password']"

@@ -1,5 +1,5 @@
 require_relative '../page/base_page'
-
+# Class contain locators and basic interaction with page
 class UserAccountPage < BasePage
   set_url_matcher 'account'
   # locators

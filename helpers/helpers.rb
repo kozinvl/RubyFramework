@@ -9,6 +9,7 @@ module EventuallyHelper
     rescue StandardError => e
       raise e if Time.now >= time_limit
 
+      # waiting when object will appear
       sleep interval
       retry
     end
