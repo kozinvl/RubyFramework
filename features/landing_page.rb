@@ -14,7 +14,7 @@ And(/^the navigation bar should include the following columns:$/) do |table|
 end
 
 When(/^I open login page$/) do
-  step open landing page
+  step "open landing page"
   web_app.landing_page.my_account.click
   web_app.landing_page.login.first.click
 end
