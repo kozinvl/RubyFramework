@@ -33,7 +33,6 @@ Then(/^the UserAccountPage should be opened$/) do
 end
 
 And(/^I choose "([^"]*)" option$/) do |option|
-  binding.pry
   case option
   when 'visa'
     web_app.landing_page.visa.click
@@ -44,17 +43,15 @@ And(/^I choose "([^"]*)" option$/) do |option|
   end
 end
 
-And(/^I select "([^"]*)" and "([^"]*)"$/) do |departure_country, arrival_country|
-  web_app.landing_page.country_to_visa departure_country, arrival_country
+And(/^I select "([^"]*)" and "([^"]*)" location$/) do |pick_up, drop_off|
+  web_app.landing_page.choice_cars pick_up, drop_off
 end
 
 And(/^I search query$/) do
-  web_app.landing_page.search_visa_button.click
+  web_app.landing_page.search_cars.click
 end
 
 Then(/^I should be able to see notification:$/) do |table|
-  sleep 3
-  actual_visa = web_app.landing_page.requirements_visa.map(&:text).select {|x| x.empty?}
-  expected_visa = table.raw.map(&:first)
-  expect(actual_visa).to eq expected_visa
+  expected_result = table.raw.map(&:first)
+  expect(actual_visa).to eq expected_result
 end

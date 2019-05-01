@@ -15,7 +15,7 @@ Feature: Landing Page
   Scenario: User should not be able to find appropriate car
     When I open landing page
     And I choose "cars" option
-#    And I select "Manchester" and "Malaysia"
-#    And I search query
+    And I select "Manchester" and "Malaysia" location
+    And I search query
 #    Then I should be able to see notification:
 #      | No Results Found |

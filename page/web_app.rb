@@ -8,7 +8,6 @@ class WebApp
                 .collect(&:capitalize)
                 .join
     create_page_object(klass)
-    super
   end
 
   def respond_to_missing?(name); end
