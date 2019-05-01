@@ -33,6 +33,7 @@ Then(/^the UserAccountPage should be opened$/) do
 end
 
 And(/^I choose "([^"]*)" option$/) do |option|
+  binding.pry
   case option
   when 'visa'
     web_app.landing_page.visa.click

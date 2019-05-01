@@ -12,6 +12,7 @@ class LandingPage < BasePage
   elements :search_result, "div[class*='select2-drop'] ul li"
   element :search_visa_button, "div[id='ivisa'] form button"
   elements :requirements_visa, "div[id='body-section'] .container h5"
+  element :cars, ""
 
   element :my_account, 'div[class="container"] #li_myaccount'
   elements :login, 'div[class="container"] #li_myaccount ul a'

@@ -2,6 +2,7 @@ require 'require_all'
 require 'selenium-webdriver'
 require 'capybara/cucumber'
 require 'site_prism'
+require 'pry'
 
 require_all './lib', './page', './helpers'
 
