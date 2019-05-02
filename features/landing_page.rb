@@ -15,13 +15,13 @@ end
 
 When(/^I open login page$/) do
   step 'open landing page'
-  web_app.landing_page.my_account.click
-  web_app.landing_page.login.first.click
+  @web_app.landing_page.my_account.click
+  @web_app.landing_page.login.first.click
 end
 
 And(/^I type correct password$/) do
-  web_app.login_page.log_in(CommonVars::USER_MAIL,
-                            CommonVars::USER_PASSWORD)
+  @web_app.login_page.log_in(CommonVars::USER_MAIL,
+                             CommonVars::USER_PASSWORD)
 end
 
 Then(/^the UserAccountPage should be opened$/) do
@@ -35,23 +35,23 @@ end
 And(/^I choose "([^"]*)" option$/) do |option|
   case option
   when 'visa'
-    web_app.landing_page.visa.click
+    @web_app.landing_page.visa.click
   when 'cars'
-    web_app.landing_page.cars.click
+    @web_app.landing_page.cars.click
   else
     raise "#{option} is not supported"
   end
 end
 
 And(/^I select "([^"]*)" and "([^"]*)" location$/) do |pick_up, drop_off|
-  web_app.landing_page.choice_cars pick_up, drop_off
+  @web_app.landing_page.choice_cars pick_up, drop_off
 end
 
 And(/^I search query$/) do
-  web_app.landing_page.search_cars.click
+  @web_app.landing_page.search_cars.click
 end
 
-Then(/^I should be able to see notification:$/) do |table|
-  expected_result = table.raw.map(&:first)
-  expect(actual_visa).to eq expected_result
+Then(/^I should be able to see notification "([^"]*)"$/) do |notification|
+  car_notification = @web_app.landing_page.search_cars_result
+  expect(car_notification).to eq notification
 end
