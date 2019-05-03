@@ -1,5 +1,5 @@
 When(/^I open landing page$/) do
-  web_app.page.open
+  @web_app.page.open
 end
 
 Then(/^I should be able to see landing page$/) do
@@ -50,6 +50,8 @@ And(/^I search query$/) do
 end
 
 Then(/^I should be able to see notification "([^"]*)"$/) do |notification|
-  car_notification = @web_app.landing_page.search_cars_result
-  expect(car_notification).to eq notification
+  EventuallyHelper.eventually do
+    car_notification = @web_app.landing_page.search_cars_result.text
+    expect(car_notification).to eq notification
+  end
 end
