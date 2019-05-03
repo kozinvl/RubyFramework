@@ -1,3 +1,4 @@
+# Basic Page Object
 class WebApp
   # Page Object Accessors
   # Converts a method call to a page object class and establishes a new instance
@@ -8,6 +9,8 @@ class WebApp
                 .join
     create_page_object(klass)
   end
+
+  def respond_to_missing?(name); end
 
   def page
     @page ||= BasePage.new

@@ -1,16 +1,17 @@
-module Helpers
-  def Helpers.eventually(options = {})
-    timeout = options[:timeout] || 2
-    interval = options[:interval] || 3
+# Some information here
+module EventuallyHelper
+  module_function
+
+  def eventually(timeout: 10, interval: 2, &block)
     time_limit = Time.now + timeout
-    loop do
-      begin
-        yield
-      rescue => error
-      end
-      return if error.nil? or FALSE
+    begin
+      yield
+    rescue Exception => error
       raise error if Time.now >= time_limit
+
+      # waiting when object will appear
       sleep interval
+      retry
     end
   end
 end

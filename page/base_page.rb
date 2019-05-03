@@ -1,5 +1,5 @@
+# Page Object
 class BasePage < SitePrism::Page
-
   element :title, '.title'
 
   def refresh
