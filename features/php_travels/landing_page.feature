@@ -1,7 +1,6 @@
 @Landing
 Feature: Landing Page
 
-  @wip
   Scenario: User should be able to see navigation bar
     When I open landing page
     Then I should be able to see landing page
@@ -15,7 +14,7 @@ Feature: Landing Page
 
   Scenario Outline: User should not be able to find appropriate car
     When I open landing page
-    And I choose "<option>" option
+    And I choose "<option>" tab
     And I select "<pick_up>" and "<drop_off>" location
     And I search query
     Then I should be able to see notification "<message>"

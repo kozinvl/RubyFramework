@@ -21,7 +21,7 @@ class LandingPage < BasePage
     wait_until_cars_visible
     car_tour_field = 'div[id=cars] span[class=select2-chosen]'
     choice_city = '.select2-result-label'
-    find(car_tour_field, text:'Pick up Location').click
+    find(car_tour_field, text: 'Pick up Location').click
     find(choice_city, text: "#{pick_up}").click
     find(car_tour_field, text: 'Drop off Location').click
     find(choice_city, text: "#{drop_off}").click

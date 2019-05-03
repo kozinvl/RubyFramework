@@ -14,7 +14,7 @@ And(/^the navigation bar should include the following columns:$/) do |table|
 end
 
 When(/^I open login page$/) do
-  step 'open landing page'
+  step 'I open landing page'
   @web_app.landing_page.my_account.click
   @web_app.landing_page.login.first.click
 end
@@ -25,14 +25,12 @@ And(/^I type correct password$/) do
 end
 
 Then(/^the UserAccountPage should be opened$/) do
-  begin
-    expect(page.current_url).to include(web_app.user_account_page.url_matcher)
-  rescue StandardError => e
-    retry
+  EventuallyHelper.eventually do
+    expect(page.current_url).to include(@web_app.user_account_page.url_matcher)
   end
 end
 
-And(/^I choose "([^"]*)" option$/) do |option|
+And(/^I choose "([^"]*)" tab$/) do |option|
   case option
   when 'visa'
     @web_app.landing_page.visa.click
