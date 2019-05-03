@@ -1,4 +1,4 @@
-When(/^I was logged as user$/) do
+Given(/^I was logged as user$/) do
   steps %(
     And I open login page
     And I type correct password
