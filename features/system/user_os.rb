@@ -31,6 +31,6 @@ Then(/^File should have permission$/) do
   expect(current_permission).match /drwxr-xr-x \d+ root/
 end
 
-And(/^I execute "([^"]*)" command with params:$/) do |command, param|
+And(/^I execute "([^"]*)" in console with params:$/) do |command, param|
   pending
 end

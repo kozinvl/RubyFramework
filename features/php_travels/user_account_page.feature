@@ -1,4 +1,4 @@
-@Account
+@web_ui @Account
 Feature: Account Page
 
   Scenario: User should be able to get access to account with valid password

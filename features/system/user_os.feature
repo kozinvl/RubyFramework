@@ -11,13 +11,10 @@ Feature: Interaction with system
       | directory      | object | name      | text |
       | work directory | file   | readme.md | text |
 
-  Scenario Outline: Change file permission
+  Scenario: Change file permission
     Given I have created file with text
-    And I execute "<console>" command with params:
+    And I execute "chmod" in console with params:
     """
       +x 777
     """
     Then File should have permission
-    Examples:
-      | console |
-      | chmod   |
