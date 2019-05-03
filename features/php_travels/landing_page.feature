@@ -10,12 +10,14 @@ Feature: Landing Page
       | FLIGHTS |
       | TOURS   |
       | CARS    |
-      | VISA    |
 
-  Scenario: User should be able to get country visa requirements
+
+  Scenario Outline: User should not be able to find appropriate car
     When I open landing page
-    And I choose "visa" option
-    And I select "Ukraine" and "United States"
+    And I choose "<option>" tab
+    And I select "<pick_up>" and "<drop_off>" location
     And I search query
-    Then I should be able to see notification:
-      | To submit your visa for approval please fill-up the below form. |
+    Then I should be able to see notification "<message>"
+    Examples:
+      | option | pick_up    | drop_off | message          |
+      | cars   | Manchester | Malaysia | No Results Found |
