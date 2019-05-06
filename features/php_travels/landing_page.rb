@@ -1,5 +1,5 @@
 When(/^I open landing page$/) do
-  @web_app.page.open
+  web_app.page.open
 end
 
 Then(/^I should be able to see landing page$/) do
