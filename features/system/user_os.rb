@@ -10,7 +10,14 @@ When(/^I go to "([^"]*)"$/) do |directory|
 end
 
 And(/^I create "([^"]*)" with name "([^"]*)"$/) do |object, name|
-  pending
+  case object
+  when 'file'
+    FileUtils.touch name
+  when 'dir'
+    FileUtils.mkdir name
+  else
+    raise "#{object} is not supported"
+  end
 end
 
 And(/^I put "([^"]*)" in file$/) do |text|
@@ -30,7 +37,10 @@ Then(/^File should exist and contain text$/) do
 end
 
 Given(/^I have created file with text$/) do
-  pending
+  steps %{
+    When I go to sys_directory
+    And I create file with name readme.md
+       }
 end
 
 Then(/^File should have permission$/) do
