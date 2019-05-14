@@ -1,5 +1,12 @@
 When(/^I go to "([^"]*)"$/) do |directory|
-  pending
+  case directory
+  when 'sys_directory'
+    FileUtils.cd("#{directory}")
+  when 'work_directory'
+    FileUtils.cd("#{directory}")
+  else
+    raise "#{directory} is not supported"
+  end
 end
 
 And(/^I create "([^"]*)" with name "([^"]*)"$/) do |object, name|
