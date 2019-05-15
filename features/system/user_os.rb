@@ -49,5 +49,5 @@ Then(/^File should have permission$/) do
 end
 
 And(/^I execute "([^"]*)" in console with params:$/) do |command, param|
-  pending
+  `#{command} #{param}`
 end
