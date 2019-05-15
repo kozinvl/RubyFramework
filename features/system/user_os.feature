@@ -5,7 +5,8 @@ Feature: Interaction with system
     When I go to "<directory>"
     And I create "<object>" with name "<name>"
     And I put "<text>" in file
-    Then File should exist and contain text
+    Then File "<name>" should exist
+    And File "<name>" should contain text
     Examples:
       | directory     | object | name      | text |
       | sys_directory | file   | readme.md | text |

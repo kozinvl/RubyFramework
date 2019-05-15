@@ -21,19 +21,25 @@ And(/^I create "([^"]*)" with name "([^"]*)"$/) do |object, name|
 end
 
 And(/^I put "([^"]*)" in file$/) do |text|
-  pending
+  File.write `pwd`, text
 end
 
 Then(/^I should be able to change file permission$/) do
-  pending
+  puts 'WIP'
 end
 
-Then(/^I should be able to change file permission with params:$/) do |text|
-  pending
+Then(/^I should be able to change file permission with params:$/) do |params|
+  puts 'WIP'
 end
 
-Then(/^File should exist and contain text$/) do
-  pending
+Then(/^File "([^"]*)" should exist$/) do |name|
+  specific_directory = `ls`.split
+  expect(specific_directory).include name
+end
+
+And(/^File "([^"]*)" should contain text$/) do |name|
+  open_file = `cat #{name}`
+  expect(open_file).include "Text"
 end
 
 Given(/^I have created file with text$/) do
