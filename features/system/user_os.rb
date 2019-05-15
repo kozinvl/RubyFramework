@@ -24,14 +24,6 @@ And(/^I put "([^"]*)" in file$/) do |text|
   File.write `pwd`, text
 end
 
-Then(/^I should be able to change file permission$/) do
-  puts 'WIP'
-end
-
-Then(/^I should be able to change file permission with params:$/) do |params|
-  puts 'WIP'
-end
-
 Then(/^File "([^"]*)" should exist$/) do |name|
   specific_directory = `ls`.split
   expect(specific_directory).include name
@@ -43,10 +35,10 @@ And(/^File "([^"]*)" should contain text$/) do |name|
 end
 
 Given(/^I have created file with text$/) do
-  steps %{
+  steps %(
     When I go to sys_directory
     And I create file with name readme.md
-       }
+       )
 end
 
 Then(/^File should have permission$/) do
@@ -54,6 +46,7 @@ Then(/^File should have permission$/) do
   expect(current_permission).match /drwxr-xr-x \d+ root/
 end
 
-And(/^I execute "([^"]*)" in console with params:$/) do |command, param|
-  `#{command} #{param}`
+And(/^I execute (.*?) in console with params:$/) do |command, param|
+  path_file = `pwd`
+  `#{command} #{param} #{path_file}/readme.md`
 end

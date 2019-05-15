@@ -13,7 +13,7 @@ Feature: Interaction with system
 
   Scenario: Change file permission
     Given I have created file with text
-    And I execute "chmod" in console with params:
+    And I execute chmod in console with params:
     """
       +x 777
     """
