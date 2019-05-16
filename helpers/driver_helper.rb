@@ -8,20 +8,18 @@ module DriverHelper
                                      browser: :remote,
                                      url: "http://#{ENV['SELENIUM_HOST']}:#{ENV['SELENIUM_PORT']}/wd/hub",
                                      desired_capabilities: browser_capabilities)
-
     end
     Capybara.default_driver = :selenium_chrome
     Capybara.current_driver = :selenium_chrome
   end
 
   def browser_capabilities
-    opts = {chromeOptions:
-                {args:
+    opts = { chromeOptions:
+                { args:
                      ['--window-size=1360,998',
                       '--ignore-certificate-errors']
                 }
-    }
+           }
     Selenium::WebDriver::Remote::Capabilities.chrome(opts)
   end
-
 end
