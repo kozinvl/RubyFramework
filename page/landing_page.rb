@@ -3,11 +3,11 @@ require_relative '../page/base_page'
 class LandingPage < BasePage
 
   element :title, "div[class='title']"
-  elements :navigate_tabs, '.text-center .text-center'
+  elements :navigate_tabs, ".text-center .text-center"
   # cars tab
   element :cars, "[title = 'Cars']"
   element :search_cars, ".btn-primary i"
-  element :search_cars_result, 'h1[class=text-center]'
+  element :search_cars_result, "h1[class=text-center]"
 
   element :my_account, "div[class='container'] #li_myaccount"
   elements :login, "div[class='container'] #li_myaccount ul a"
