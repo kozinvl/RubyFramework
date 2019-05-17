@@ -1,7 +1,7 @@
 When(/^I go to "([^"]*)"$/) do |directory|
   case directory
   when 'sys_directory'
-    FileUtils.cd("#{directory}")
+    FileUtils.cd('/project/bbt/SYS_TEST')
   when 'work_directory'
     FileUtils.cd("#{directory}")
   else
@@ -9,7 +9,7 @@ When(/^I go to "([^"]*)"$/) do |directory|
   end
 end
 
-And(/^I create "([^"]*)" with name "([^"]*)"$/) do |object, name|
+And(/^I create (file|dir) with "([^"]*)"$/) do |object, name|
   case object
   when 'file'
     FileUtils.touch name
@@ -20,18 +20,18 @@ And(/^I create "([^"]*)" with name "([^"]*)"$/) do |object, name|
   end
 end
 
-And(/^I put "([^"]*)" in file$/) do |text|
-  File.write `pwd`, text
+And(/^I put "([^"]*)" in file with "([^"]*)"$/) do |text, file_name|
+  File.write file_name, text
 end
 
-Then(/^File "([^"]*)" should exist$/) do |name|
-  specific_directory = `ls`.split
-  expect(specific_directory).include name
+Then(/^file "([^"]*)" should exist$/) do |name|
+  specific_directory = `ls /project/bbt/SYS_TEST`.split
+  expect(specific_directory).to include name
 end
 
-And(/^File "([^"]*)" should contain text$/) do |name|
-  open_file = `cat #{name}`
-  expect(open_file).include "Text"
+And(/^file "([^"]*)" should contain "([^"]*)"$/) do |file_name, text|
+  open_file = `cat /project/bbt/SYS_TEST/#{file_name}`
+  expect(open_file).to include text
 end
 
 Given(/^I have created file with text$/) do
@@ -41,12 +41,12 @@ Given(/^I have created file with text$/) do
        )
 end
 
-Then(/^File should have permission$/) do
+Then(/^file should have permission$/) do
   current_permission = `ls -ld $pwd`.strip
   expect(current_permission).match /drwxr-xr-x \d+ root/
 end
 
 And(/^I execute (.*?) in console with params:$/) do |command, param|
-  path_file = `pwd`
+  path_file = "/project/bbt/SYS_TEST"
   `#{command} #{param} #{path_file}/readme.md`
 end

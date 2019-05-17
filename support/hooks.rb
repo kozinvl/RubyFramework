@@ -11,3 +11,12 @@ After do |scenario|
     end
   end
 end
+
+Before('@system') do
+  FileUtils.mkdir('/project/bbt/SYS_TEST')
+end
+
+After('@system') do
+  puts "\nCleaning up\t"
+  # FileUtils.rm_rf('/project/bbt/SYS_TEST')
+end
