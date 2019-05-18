@@ -1,7 +1,7 @@
 When(/^I go to "([^"]*)"$/) do |directory|
   case directory
   when 'sys_directory'
-    FileUtils.cd('/project/bbt/SYS_TEST')
+    FileUtils.cd("#{CommonVars::DIR_VAR}#{CommonVars::SYS_TEST}")
   when 'work_directory'
     FileUtils.cd("#{directory}")
   else
@@ -25,28 +25,29 @@ And(/^I put "([^"]*)" in file with "([^"]*)"$/) do |text, file_name|
 end
 
 Then(/^file "([^"]*)" should exist$/) do |name|
-  specific_directory = `ls /project/bbt/SYS_TEST`.split
+  specific_directory = `ls #{CommonVars::DIR_VAR}#{CommonVars::SYS_TEST}`.split
   expect(specific_directory).to include name
 end
 
 And(/^file "([^"]*)" should contain "([^"]*)"$/) do |file_name, text|
-  open_file = `cat /project/bbt/SYS_TEST/#{file_name}`
+  open_file = `cat #{CommonVars::DIR_VAR}#{CommonVars::SYS_TEST}/#{file_name}`
   expect(open_file).to include text
 end
 
 Given(/^I have created file with text$/) do
   steps %(
-    When I go to sys_directory
-    And I create file with name readme.md
+    When I go to "sys_directory"
+    And I create file with "readme.md"
        )
 end
 
 Then(/^file should have permission$/) do
   current_permission = `ls -ld $pwd`.strip
-  expect(current_permission).match /drwxr-xr-x \d+ root/
+  expect(current_permission).to match /drwxr-xr-x \d+ root/
 end
 
 And(/^I execute (.*?) in console with params:$/) do |command, param|
-  path_file = "/project/bbt/SYS_TEST"
-  `#{command} #{param} #{path_file}/readme.md`
+  path_file = "#{CommonVars::DIR_VAR}#{CommonVars::SYS_TEST}"
+  console_command = "#{command} #{param} "
+  `#{console_command} #{path_file}readme.md`
 end

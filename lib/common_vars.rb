@@ -22,4 +22,7 @@ module CommonVars
   USER_FIRST_NAME = 'Johny'.freeze
   USER_LAST_NAME = 'Smith'.freeze
   USER_PHONE = '123456'.freeze
+
+  DIR_VAR = '/project/'
+  SYS_TEST = '/bbt/SYS_TEST/'
 end

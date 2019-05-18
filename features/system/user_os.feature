@@ -15,6 +15,6 @@ Feature: Interaction with system
     Given I have created file with text
     And I execute chmod in console with params:
     """
-      +x 777
+     777
     """
     Then file should have permission
