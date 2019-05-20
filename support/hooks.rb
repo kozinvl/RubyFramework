@@ -13,11 +13,11 @@ After do |scenario|
 end
 
 Before('@system') do
-  FileUtils.mkdir_p("#{CommonVars::DIR_VAR}#{CommonVars::SYS_TEST}")
+  FileUtils.mkdir_p("#{CommonVars::SYS_TEST}")
 end
 
 After('@system') do
   puts "\nCleaning up\t"
   FileUtils.cd("#{CommonVars::DIR_VAR}")
-  FileUtils.rm_r("#{CommonVars::DIR_VAR}#{CommonVars::SYS_TEST}")
+  FileUtils.rm_r("#{CommonVars::SYS_TEST}")
 end

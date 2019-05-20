@@ -25,12 +25,12 @@ And(/^I put "([^"]*)" in file with "([^"]*)"$/) do |text, file_name|
 end
 
 Then(/^file "([^"]*)" should exist$/) do |name|
-  specific_directory = `ls #{CommonVars::DIR_VAR}#{CommonVars::SYS_TEST}`.split
+  specific_directory = `ls #{CommonVars::SYS_TEST}`.split
   expect(specific_directory).to include name
 end
 
 And(/^file "([^"]*)" should contain "([^"]*)"$/) do |file_name, text|
-  open_file = `cat #{CommonVars::DIR_VAR}#{CommonVars::SYS_TEST}/#{file_name}`
+  open_file = `cat #{CommonVars::SYS_TEST}/#{file_name}`
   expect(open_file).to include text
 end
 
@@ -47,7 +47,7 @@ Then(/^file should have permission$/) do
 end
 
 And(/^I execute (.*?) in console with params:$/) do |command, param|
-  path_file = "#{CommonVars::DIR_VAR}#{CommonVars::SYS_TEST}"
+  path_file = "#{CommonVars::SYS_TEST}"
   console_command = "#{command} #{param} "
   `#{console_command} #{path_file}readme.md`
 end
