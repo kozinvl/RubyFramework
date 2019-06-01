@@ -1,7 +1,7 @@
 When(/^I go to "([^"]*)"$/) do |directory|
   case directory
   when 'sys_directory'
-    FileUtils.cd("#{CommonVars::DIR_VAR}#{CommonVars::SYS_TEST}")
+    FileUtils.cd("#{CommonVars::SYS_TEST}")
   when 'work_directory'
     FileUtils.cd("#{directory}")
   else

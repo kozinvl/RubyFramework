@@ -11,8 +11,12 @@ services:
 
   bbt:
     build: .
+    volumes:
+      - .:/project/bbt
+    working_dir: /project/bbt
     environment:
       - SELENIUM_HOST=selenium-chrome
       - SELENIUM_PORT=4444
     depends_on:
       - selenium-chrome
+    entrypoint: ["/project/bbt/bin/setup.sh"]
