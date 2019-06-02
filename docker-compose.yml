@@ -1,0 +1,25 @@
+version: '2'
+
+services:
+
+  selenium-chrome:
+    image: selenium/standalone-chrome
+    container_name: selenium-chrome
+    volumes:
+      - /dev/shm:/dev/shm
+    ports:
+      - "4444:4444"
+
+  bbt:
+    build: blackbox-test
+    container_name: blackbox-tests
+    volumes:
+      - .:/project
+    working_dir: /project/blackbox-test
+    environment:
+      - SELENIUM_HOST=selenium-chrome
+      - SELENIUM_PORT=4444
+    depends_on:
+      - selenium-chrome
+#    entrypoint: ["/project/bbt/bin/setup.sh"]
+    entrypoint: ["tail", "-f", "/dev/null"]

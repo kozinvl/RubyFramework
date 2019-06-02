@@ -19,7 +19,10 @@ module CommonVars
   TITLE = 'FEATURED TOURS'.freeze
 
   # personal account details
-  USER_FIRST_NAME = 'Johny'.freeze
-  USER_LAST_NAME = 'Smith'.freeze
-  USER_PHONE = '123456'.freeze
+  USER_FIRST_NAME = 'Raghavan'.freeze
+  USER_LAST_NAME = 'Raghavendar'.freeze
+  USER_PHONE = '+31644574635'.freeze
+
+  DIR_VAR = '/project'.freeze
+  SYS_TEST = "#{DIR_VAR}/blackbox-test/SYS_TEST/".freeze
 end

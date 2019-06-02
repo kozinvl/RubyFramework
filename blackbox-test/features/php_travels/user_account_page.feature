@@ -1,4 +1,4 @@
-@Account
+@web_ui @Account
 Feature: Account Page
 
   Scenario: User should be able to get access to account with valid password
@@ -7,6 +7,6 @@ Feature: Account Page
     Then the UserAccountPage should be opened
 
   Scenario: User should be able to see personal information
-    When I was logged as user
+    Given I was logged as user
     And I open Personal details
     Then I should be able to see personal details
