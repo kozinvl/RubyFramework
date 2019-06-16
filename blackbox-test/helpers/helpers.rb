@@ -1,4 +1,3 @@
-# Some information here
 module EventuallyHelper
   module_function
 
