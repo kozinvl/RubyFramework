@@ -3,7 +3,9 @@ When(/^I open landing page$/) do
 end
 
 Then(/^I should be able to see landing page$/) do
-  expect(web_app.landing_page.title.text).to eq CommonVars::TITLE
+  EventuallyHelper.eventually do
+    expect(web_app.landing_page.title.text).to eq CommonVars::TITLE
+  end
 end
 
 And(/^the navigation bar should include the following columns:$/) do |table|

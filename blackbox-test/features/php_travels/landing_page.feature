@@ -1,4 +1,5 @@
-@web_ui @Landing
+@web_ui
+@landing
 Feature: Landing Page
 
   Scenario: User should be able to see navigation bar

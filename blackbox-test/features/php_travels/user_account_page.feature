@@ -1,4 +1,6 @@
-@web_ui @Account
+@wip
+@web_ui
+@account
 Feature: Account Page
 
   Scenario: User should be able to get access to account with valid password

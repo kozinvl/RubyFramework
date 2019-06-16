@@ -9,6 +9,8 @@ services:
       - /dev/shm:/dev/shm
     ports:
       - "4444:4444"
+#    logging:
+#      driver: none
 
   bbt:
     build: blackbox-test
@@ -21,5 +23,4 @@ services:
       - SELENIUM_PORT=4444
     depends_on:
       - selenium-chrome
-#    entrypoint: ["/project/bbt/bin/setup.sh"]
-    entrypoint: ["tail", "-f", "/dev/null"]
+    entrypoint: ["/project/blackbox-test/bin/setup.sh"]
