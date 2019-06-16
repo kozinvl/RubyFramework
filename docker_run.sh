@@ -3,8 +3,8 @@
 #docker build -t bdd_cucumber .
 #docker run -d bdd_cucumber
 
-# -d working in background
-docker-compose build && docker-compose up -d
-docker-compose down
+# up -d working in background
+docker-compose build && docker-compose up
+#docker-compose down
 
 # docker exec -it <id> bash
