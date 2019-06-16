@@ -1,5 +1,4 @@
 module DriverHelper
-
   extend self
 
   def register_browser
