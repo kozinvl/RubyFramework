@@ -45,8 +45,8 @@ jobs:
       - run:
           name: run tests
           command: |
-            mkdir /tmp/test-results
-            CI_ENV=true bundle exec cucumber --tags ~@wip
+            sudo systemctl enable docker
+            docker-compose build && docker-compose up -d
       # collect reports
       - store_test_results:
           path: /tmp/test-results
