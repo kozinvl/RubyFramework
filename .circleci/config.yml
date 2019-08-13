@@ -8,18 +8,11 @@ jobs:
       - checkout
       - run: docker-compose build
       - run: docker-compose up
-      - store_test_results:
-          path: /tmp/test-results
-      - store_artifacts:
-          path: /tmp/test-results
-          destination: test-results
+      - run: docker-compose stop
 
 workflows:
   version: 2
-  frontend:
+  ui_testing:
     jobs:
-      - build:
-          filters:
-            branches:
-              only:
-                - master
+      - build
+
