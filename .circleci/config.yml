@@ -7,8 +7,7 @@ jobs:
     steps:
       - checkout
       - run: docker-compose build
-      - run: docker-compose up
-      - run: docker-compose stop
+      - run: docker-compose run bbt
 
 workflows:
   version: 2
