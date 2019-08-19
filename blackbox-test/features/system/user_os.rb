@@ -1,4 +1,4 @@
-When(/^I go to "([^"]*)"$/) do |directory|
+When(/^I go to (sys_directory|work_directory)$/) do |directory|
   case directory
   when 'sys_directory'
     FileUtils.cd("#{CommonVars::SYS_TEST}")
@@ -36,7 +36,7 @@ end
 
 Given(/^I have created file with text$/) do
   steps %(
-    When I go to "sys_directory"
+    When I go to sys_directory
     And I create file with "readme.md"
        )
 end

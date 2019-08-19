@@ -2,14 +2,14 @@
 Feature: Interaction with system
 
   Scenario Outline: Creating working elements
-    When I go to "<directory>"
+    When I go to sys_directory
     And I create file with "<name>"
     And I put "<text>" in file with "<name>"
     Then file "<name>" should exist
     And file "<name>" should contain "<text>"
     Examples:
-      | directory     | name      | text   |
-      | sys_directory | system.md | key_$1 |
+      | name      | text   |
+      | system.md | key_$1 |
 
   Scenario: Change file permission
     Given I have created file with text
