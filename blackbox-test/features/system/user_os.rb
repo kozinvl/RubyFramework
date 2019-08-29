@@ -30,8 +30,8 @@ Then(/^file "([^"]*)" should exist$/) do |name|
 end
 
 And(/^file "([^"]*)" should contain "([^"]*)"$/) do |file_name, text|
-  open_file = `cat #{CommonVars::SYS_TEST}/#{file_name}`
-  expect(open_file).to include text
+  file = `cat #{CommonVars::SYS_TEST}/#{file_name}`
+  expect(file).to include text
 end
 
 Given(/^I have created file with text$/) do
@@ -47,7 +47,7 @@ Then(/^file should have permission$/) do
 end
 
 And(/^I execute (.*?) in console with params:$/) do |command, param|
-  path_file = "#{CommonVars::SYS_TEST}"
+  file_path = "#{CommonVars::SYS_TEST}"
   console_command = "#{command} #{param} "
-  `#{console_command} #{path_file}readme.md`
+  `#{console_command} #{file_path}readme.md`
 end
