@@ -16,10 +16,10 @@ Feature: Landing Page
 
   Scenario Outline: Should find appropriate car
     When I open landing page
-    And I choose "<option>" tab
+    And I choose cars tab
     And I select "<pick_up>" and "<drop_off>" location
     And I search query
     Then I should be able to see notification "<message>"
     Examples:
-      | option | pick_up    | drop_off | message          |
-      | cars   | Manchester | Malaysia | No Results Found |
+      | pick_up    | drop_off | message          |
+      | Manchester | Malaysia | No Results Found |
