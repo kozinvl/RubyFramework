@@ -14,4 +14,3 @@ end
 #### driver setup ####
 DriverHelper.register_browser
 
-docker_ip = %x(/sbin/ip route|awk '/default/ { print $3 }').strip

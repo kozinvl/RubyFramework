@@ -10,6 +10,7 @@ module DriverHelper
     end
     Capybara.default_driver = :selenium_chrome
     Capybara.current_driver = :selenium_chrome
+    Capybara.default_max_wait_time = 40
   end
 
   def browser_capabilities
