@@ -15,13 +15,10 @@ Feature: Landing Page
       | VISA        |
 
   @visa
-  Scenario Outline: User can find appropriate visa
+  Scenario: User can find appropriate visa
     When I open landing page
     And I choose visa menu at navigation widget
-    And I choose "<departure>" and "<arrival>" on visa menu
+    And I choose Ukraine and Turkey on visa menu
     And I choose 31-12-2021 on visa date
     And I make visa query
     Then I should be able to see notification
-    Examples:
-      | departure | arrival |
-      | Ukraine   | Turkey  |

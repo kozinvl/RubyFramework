@@ -61,7 +61,7 @@ Then(/^I should be able to see notification$/) do
   end
 end
 
-And(/^I choose "([^"]*)" and "([^"]*)" on visa menu$/) do |from, where|
+And(/^I choose ([^"]*) and ([^"]*) on visa menu$/) do |from, where|
   web_app.landing_page.choice_visa(from, where)
 end
 
