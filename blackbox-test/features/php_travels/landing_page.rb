@@ -1,19 +1,19 @@
 When(/^I open landing page$/) do
   web_app.page.open
-  web_app.page.wait_for_ajax
+  #web_app.page.wait_for_ajax
 end
 
 Then(/^I should be able to see landing page$/) do
-  web_app.landing_page.wait_for_ajax
+  #web_app.landing_page.wait_for_ajax
   EventuallyHelper.eventually do
     expect(web_app.landing_page).to have_logo
   end
 end
 
-And(/^the navigation widget should include the following columns$/) do |table|
+And(/^the navigation widget should include the following columns$/) do |menu|
   actual_result = web_app.landing_page.navigate_menu
-  table.hashes.each_entry do |expected|
-    expect(actual_result).to include expected['Travel Menu']
+  menu.hashes.each_entry do |expected|
+    expect(actual_result).to include expected['Travel Menu'].camelize
   end
 end
 
@@ -30,7 +30,7 @@ end
 
 Then(/^the UserAccountPage should be opened$/) do
   EventuallyHelper.eventually do
-    expect(page.current_url).to include(@web_app.user_account_page.url_matcher)
+    expect(page.current_url).to include(web_app.user_account_page.url_matcher)
   end
 end
 
