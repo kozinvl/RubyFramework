@@ -4,21 +4,21 @@ module CommonVars
   SUPPLIER = '/SUPPLIER'.freeze
   ADMIN = '/ADMIN'.freeze
 
-  # user credentials
+  # User credentials
   USER_MAIL = 'user@phptravels.com'.freeze
   USER_PASSWORD = 'demouser'.freeze
 
-  # admin credentials
+  # Admin credentials
   ADMIN_MAIL = 'admin@phptravels.com'.freeze
   ADMIN_PASSWORD = 'demoadmin'.freeze
 
-  # supplier credentials
-  SUPPLIER_MAIL = 'supplier@phptravels.com'.freeze
+  # Supplier credentials
+  SUPPLIER_MAIL = 'suvupplier@phptravels.com'.freeze
   SUPPLIER_PASSWORD = 'demosupplier'.freeze
 
   TITLE = 'FEATURED TOURS'.freeze
 
-  # personal account details
+  # Personal account details
   USER_FIRST_NAME = 'Raghavan'.freeze
   USER_LAST_NAME = 'Raghavendar'.freeze
   USER_PHONE = '+31644574635'.freeze
