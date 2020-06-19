@@ -1,10 +1,8 @@
 When(/^I open landing page$/) do
   web_app.page.open
-  #web_app.page.wait_for_ajax
 end
 
 Then(/^I should be able to see landing page$/) do
-  #web_app.landing_page.wait_for_ajax
   EventuallyHelper.eventually do
     expect(web_app.landing_page).to have_logo
   end
@@ -13,7 +11,7 @@ end
 And(/^the navigation widget should include the following columns$/) do |menu|
   actual_result = web_app.landing_page.navigate_menu
   menu.hashes.each_entry do |expected|
-    expect(actual_result).to include expected['Travel Menu'].camelize
+    expect(actual_result).to include expected['Travel Menu']
   end
 end
 
@@ -50,6 +48,7 @@ And(/^I select "([^"]*)" and "([^"]*)" location$/) do |pick_up, drop_off|
 end
 
 And(/^I make visa query$/) do
+  web_app.landing_page.wait_until_visa_submit_visible
   web_app.landing_page.visa_submit.click
 end
 

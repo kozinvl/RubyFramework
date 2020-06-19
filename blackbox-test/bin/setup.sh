@@ -9,7 +9,7 @@ cd "$HERE"/..
 mkdir -p test-reports
 
 
-time=5
+time=3
 while [ $time -gt 0 ]
 do
     sleep 1s
