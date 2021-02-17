@@ -25,7 +25,7 @@ module DriverHelper
   end
 
   def browser_settings
-    ConfigHelper.instance[:browser_settings]
+    ConfigHelper.instance[:browser]
   end
 
   def remote_browser_url
