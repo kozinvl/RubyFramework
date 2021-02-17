@@ -5,7 +5,7 @@ jobs:
       ruby:
         type: string
     docker:
-      - image: circleci/ruby:<<parameters.ruby>>
+      - image: circleci/ruby:2.6.3
     steps:
       - checkout
       - run: bundle install
@@ -15,15 +15,9 @@ jobs:
     machine: true
     working_directory: ~/repo
     steps:
-      - run:
-          name: Rubocop
-          command: bundle exec rubocop
       - checkout
       - run: docker-compose build
       - run: docker-compose run bbt
-
-  
-      
 
 workflows:
   version: 2
