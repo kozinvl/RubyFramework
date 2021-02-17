@@ -1,7 +1,9 @@
-module DriverHelper
-  extend self
+# frozen_string_literal: true
 
-  def browser_config
+module DriverHelper
+  module_function
+
+  def browser
     ConfigHelper.instance[:browser]
   end
 
@@ -9,17 +11,17 @@ module DriverHelper
     Capybara.register_driver :selenium_chrome do |app|
       Capybara::Selenium::Driver.new(app,
                                      browser: :remote,
-                                     url: "http://#{browser_config[:host]}:#{browser_config[:port]}/wd/hub",
+                                     url: "http://#{browser[:host]}:#{browser[:port]}/wd/hub",
                                      desired_capabilities: browser_capabilities)
     end
-    Capybara.default_driver = :selenium_chrome
-    Capybara.current_driver = :selenium_chrome
-    Capybara.default_max_wait_time = browser_config[:default_max_wait_time]
+    Capybara.default_driver = browser[:name]
+    Capybara.current_driver = browser[:name]
+    Capybara.default_max_wait_time = browser[:default_max_wait_time]
   end
 
   def browser_capabilities
     opts = { chromeOptions:
-               { args: browser_config[:capabilities] }
+               { args: browser[:capabilities] }
     }
     Selenium::WebDriver::Remote::Capabilities.chrome(opts)
   end
