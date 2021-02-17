@@ -1,0 +1,13 @@
+:app:
+  :host: appserver
+  :port: 3001
+
+:browser:
+  :run_in_docker: true
+  :name: :selenium_chrome
+  :host: selenium-chrome
+  :port: 4444
+  :capabilities:
+    - "--ignore-certificate-errors"
+    - "--window-size=1360,998"
+  :default_max_wait_time: 30
