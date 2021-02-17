@@ -5,7 +5,7 @@ require 'site_prism'
 require 'pry'
 require 'fileutils'
 
-require_all './lib', './page', './helpers'
+require_all './libs', './page', './helpers'
 
 def web_app
   @web_app ||= WebApp.new
