@@ -14,7 +14,7 @@ orbs:
   ruby-linter: amyroi/ruby-linter@1.0.0
 
 workflows:
-  version: 2
+  version: 2.1
   ui_testing:
     jobs:
       - build
