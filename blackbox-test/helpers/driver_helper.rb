@@ -12,6 +12,10 @@ module DriverHelper
                                        desired_capabilities: browser_capabilities)
       end
     end
+    drivers
+  end
+
+  def drivers
     Capybara.default_driver = browser_name
     Capybara.current_driver = browser_name
     Capybara.default_max_wait_time = browser_settings[:default_max_wait_time]
@@ -19,8 +23,7 @@ module DriverHelper
 
   def browser_capabilities
     opts = { chromeOptions:
-               { args: browser_settings[:capabilities] }
-    }
+               { args: browser_settings[:capabilities] } }
     Selenium::WebDriver::Remote::Capabilities.chrome(opts)
   end
 

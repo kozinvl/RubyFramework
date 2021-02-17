@@ -26,7 +26,7 @@ class WebApp
     if constant_exists?(klass_string)
       Object.const_get(klass_string).new
     else
-      raise "There's no page object currently defined called #{klass_string}"
+      raise("There's no page object currently defined called #{klass_string}")
     end
   end
 end

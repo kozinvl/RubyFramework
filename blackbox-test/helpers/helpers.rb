@@ -5,8 +5,8 @@ module EventuallyHelper
     time_limit = Time.now + timeout
     begin
       yield
-    rescue Exception => error
-      raise error if Time.now >= time_limit
+    rescue Exception => e
+      raise e if Time.now >= time_limit
 
       # waiting when object will appear
       sleep interval

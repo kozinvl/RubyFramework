@@ -1,9 +1,9 @@
 When(/^I go to (sys_directory|work_directory)$/) do |directory|
   case directory
   when 'sys_directory'
-    FileUtils.cd("#{CommonVars::SYS_TEST}")
+    FileUtils.cd(CommonVars::SYS_TEST)
   when 'work_directory'
-    FileUtils.cd("#{directory}")
+    FileUtils.cd(directory)
   else
     raise "#{directory} is not supported"
   end
@@ -12,9 +12,9 @@ end
 And(/^I create (file|dir) with "([^"]*)"$/) do |object, name|
   case object
   when 'file'
-    FileUtils.touch name
+    FileUtils.touch(name)
   when 'dir'
-    FileUtils.mkdir name
+    FileUtils.mkdir(name)
   else
     raise "#{object} is not supported"
   end
@@ -43,11 +43,11 @@ end
 
 Then(/^file should have permission$/) do
   current_permission = `ls -ld $pwd`.strip
-  expect(current_permission).to match /drwxr-xr-x \d+ root/
+  expect(current_permission).to match(/drwxr-xr-x \d+ root/)
 end
 
 And(/^I execute (.*?) in console with params:$/) do |command, param|
-  file_path = "#{CommonVars::SYS_TEST}"
+  file_path = CommonVars::SYS_TEST
   console_command = "#{command} #{param} "
   `#{console_command} #{file_path}readme.md`
 end

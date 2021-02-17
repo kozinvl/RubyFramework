@@ -1,6 +1,5 @@
 # Page Object
 class BasePage < SitePrism::Page
-
   def refresh
     page.driver.browser.navigate.refresh
   end

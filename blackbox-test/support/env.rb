@@ -11,6 +11,5 @@ def web_app
   @web_app ||= WebApp.new
 end
 
-#### driver setup ####
+#### Driver setup ####
 DriverHelper.register_browser
-

@@ -23,7 +23,7 @@ end
 
 And(/^I type correct password$/) do
   web_app.login_page.log_in(CommonVars::USER_MAIL,
-                             CommonVars::USER_PASSWORD)
+                            CommonVars::USER_PASSWORD)
 end
 
 Then(/^the UserAccountPage should be opened$/) do
