@@ -22,6 +22,6 @@ Metrics/AbcSize:
 Lint/RescueException:
   Enabled: false
 
-Style/MethodMissingSuper:
+Lint/MissingSuper:
   Enabled: false
 
