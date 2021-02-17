@@ -8,7 +8,7 @@ jobs:
       - image: circleci/ruby:2.6.3
     steps:
       - checkout
-      - run: bundle install
+      - run: gem install rubocop
       - run: bundle exec rubocop
 
   build:
