@@ -1,21 +1,28 @@
-version: 2.1
+version: 2
 jobs:
+  rubocop:
+    parameters:
+      ruby:
+        type: string
+    docker:
+      - image: circleci/ruby:2.6.3
+    steps:
+      - checkout
+      - run: gem install rubocop
+      - run: rubocop
+
   build:
     machine: true
     working_directory: ~/repo
-
     steps:
       - checkout
-      - ruby-linter/eslint
       - run: docker-compose build
       - run: docker-compose run bbt
-
-orbs:
-  ruby-linter: amyroi/ruby-linter@1.0.0
 
 workflows:
   version: 2
   ui_testing:
     jobs:
+      - rubocop
       - build
 
