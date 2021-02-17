@@ -11,7 +11,7 @@ jobs:
       - run: docker-compose run bbt
 
 orbs:
-  ruby-linter: amyroi/ruby-linter@1.0.0
+  ruby-linter: amyroi/ruby-linter@1.0.1
 
 workflows:
   version: 2.1
