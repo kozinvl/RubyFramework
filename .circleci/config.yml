@@ -1,4 +1,4 @@
-version: 2.1
+version: 2.0
 jobs:
   build:
     machine: true
@@ -6,15 +6,11 @@ jobs:
 
     steps:
       - checkout
-      - ruby-linter/eslint
       - run: docker-compose build
       - run: docker-compose run bbt
 
-orbs:
-  ruby-linter: amyroi/ruby-linter@1.0.1
-
 workflows:
-  version: 2.1
+  version: 2.0
   ui_testing:
     jobs:
       - build
