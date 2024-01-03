@@ -1,6 +1,6 @@
 ## Ruby Automation tests
 
-Repo contains ruby automation framework to test UI/API.
+Repo contains a ruby automation framework to test UI.
 
 Using Cucumber, SitePrism, Capybara
 
@@ -8,7 +8,7 @@ Cucumber
 ---------
 
 Cucumber is a software tool used by computer programmers for testing other software. 
-It runs automated acceptance tests written in a behavior-driven development (BDD) style. 
+It runs automated acceptance tests in a behavior-driven development (BDD) style. 
 Central to the Cucumber BDD approach is its plain language parser called Gherkin.
 
 SitePrism
@@ -16,7 +16,7 @@ SitePrism
 
 A Page Object Model DSL for Capybara
 
-SitePrism gives you a simple, clean and semantic DSL for describing your site using the Page Object Model pattern, for use with Capybara in automated acceptance testing.
+SitePrism gives you a simple, clean, and semantic DSL for describing your site using the Page Object Model pattern, for use with Capybara in automated acceptance testing.
 
 Find the pretty documentation here: http://rdoc.info/gems/site_prism/frames
 
