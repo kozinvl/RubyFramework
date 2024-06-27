@@ -26,3 +26,6 @@ Capybara
 Capybara helps you test web applications by simulating how a real user would interact with your app. 
 It is agnostic about the driver running your tests and comes with Rack::Test and Selenium support built in. 
 WebKit is supported through an external gem.
+
+
+[![Dependabot Updates](https://github.com/kozinvl/RubyFramework/actions/workflows/dependabot/dependabot-updates/badge.svg?branch=master)](https://github.com/kozinvl/RubyFramework/actions/workflows/dependabot/dependabot-updates)
